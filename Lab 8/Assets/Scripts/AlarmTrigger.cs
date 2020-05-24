@@ -6,12 +6,15 @@ public class AlarmTrigger : MonoBehaviour
 {
 
     public GameObject alarm;
+    public GameObject sound;
 
     // Start is called before the first frame update
     void Start()
     {
         if (alarm)
             alarm.SetActive(false);
+        if (sound)
+            sound.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,11 +25,17 @@ public class AlarmTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        alarm.SetActive(true);
+        if(alarm)
+            alarm.SetActive(true);
+        if (sound)
+            sound.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        alarm.SetActive(false);
+        if(alarm)
+            alarm.SetActive(false);
+        if (sound)
+            sound.SetActive(false);
     }
 }

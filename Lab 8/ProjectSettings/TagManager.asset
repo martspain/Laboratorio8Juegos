@@ -14,6 +14,7 @@ TagManager:
   - Trash Can
   - Cable Reel
   - Box
+  - Note
   layers:
   - Default
   - TransparentFX

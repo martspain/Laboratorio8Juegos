@@ -7,6 +7,13 @@ TagManager:
   - Enemy
   - Prop
   - Alarm
+  - Fragile Content Boxes
+  - Shelf
+  - Opened Boxes
+  - Locker
+  - Trash Can
+  - Cable Reel
+  - Box
   layers:
   - Default
   - TransparentFX

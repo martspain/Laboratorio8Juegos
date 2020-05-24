@@ -8,11 +8,17 @@ public class HousePropBehaviour : MonoBehaviour
 
     public GameObject text;
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
-        if (text) 
+        Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(myRay, out hitInfo))
         {
-            text.GetComponent<Text>().text = gameObject.tag;
+            if (text && hitInfo.distance <= 3.0f)
+            {
+                text.GetComponent<Text>().text = gameObject.tag;
+            }
         }
     }
 

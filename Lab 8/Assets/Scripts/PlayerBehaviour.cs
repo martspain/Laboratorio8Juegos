@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject disco;
     public GameObject themeSong;
     public GameObject discoSong;
+    public GameObject winBanner;
     private Text info;
     private int score;
     // Start is called before the first frame update
@@ -24,6 +25,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (discoSong)
             discoSong.SetActive(false);
+
+        if (winBanner)
+            winBanner.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (Physics.Raycast(myRay, out hitInfo))
             {
-                if (hitInfo.collider.CompareTag("Note"))
+                if (hitInfo.collider.CompareTag("Note") && hitInfo.distance <= 3.0f)
                 {
                     Destroy(hitInfo.collider.gameObject);
                     score += 1;
@@ -49,13 +53,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (score == 8) 
         {
-            disco.SetActive(true);
+            if(disco)
+                disco.SetActive(true);
 
             if (themeSong)
                 themeSong.SetActive(false);
 
             if (discoSong)
                 discoSong.SetActive(true);
+
+            if (winBanner)
+                winBanner.SetActive(true);
         }
             
     }
